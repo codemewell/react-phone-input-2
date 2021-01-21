@@ -38,6 +38,9 @@ class PhoneInput extends React.Component {
     dropdownClass: PropTypes.string,
     searchClass: PropTypes.string,
 
+    validInputClass: PropTypes.string,
+    invalidInputClass: PropTypes.string,
+
     autoFormat: PropTypes.bool,
 
     enableAreaCodes: PropTypes.oneOfType([
@@ -124,6 +127,9 @@ class PhoneInput extends React.Component {
     buttonClass: '',
     dropdownClass: '',
     searchClass: '',
+
+    validInputClass: '',
+    invalidInputClass: '',
 
     autoFormat: true,
     enableAreaCodes: false,
@@ -918,7 +924,9 @@ class PhoneInput extends React.Component {
     const inputClasses = classNames({
       [this.props.inputClass]: true,
       'form-control': true,
-      'invalid-number': !isValidValue,
+      'invalid-number': invalidInputClass ? false : !isValidValue,
+      [this.props.invalidInputClass]: true,
+      [this.props.validInputClass]: true,
       'open': showDropdown,
     });
     const selectedFlagClasses = classNames({
