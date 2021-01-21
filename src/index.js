@@ -924,7 +924,7 @@ class PhoneInput extends React.Component {
     const inputClasses = classNames({
       [this.props.inputClass]: true,
       'form-control': true,
-      'invalid-number': invalidInputClass ? false : !isValidValue,
+      'invalid-number': this.props.invalidInputClass ? false : !isValidValue,
       [this.props.invalidInputClass]: true,
       [this.props.validInputClass]: true,
       'open': showDropdown,
