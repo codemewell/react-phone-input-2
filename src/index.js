@@ -924,7 +924,7 @@ class PhoneInput extends React.Component {
       'react-tel-input': true,
     });
     const arrowClasses = classNames({ 'arrow': true, 'up': showDropdown });
-    const validationClasses = () => validationActive ? {
+    const validationClasses = () => this.props.validationActive ? {
       'invalid-number': (this.props.invalidInputClass) ? false : !isValidValue,
       [this.props.invalidInputClass]: !isValidValue,
       [this.props.validInputClass]: isValidValue
