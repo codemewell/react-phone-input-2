@@ -98,6 +98,8 @@ class PhoneInput extends React.Component {
       PropTypes.bool,
       PropTypes.func,
     ]),
+    validationActive: PropTypes.bool,
+
     defaultErrorMessage: PropTypes.string,
     specialLabel: PropTypes.string,
   }
@@ -166,6 +168,7 @@ class PhoneInput extends React.Component {
     showDropdown: false,
 
     isValid: true, // (value, selectedCountry, onlyCountries, hiddenAreaCodes) => true | false | 'Message'
+    validationActive: false,
     defaultErrorMessage: '',
     specialLabel: 'Phone',
 
@@ -921,12 +924,15 @@ class PhoneInput extends React.Component {
       'react-tel-input': true,
     });
     const arrowClasses = classNames({ 'arrow': true, 'up': showDropdown });
+    const validationClasses = () => validationActive ? {
+      'invalid-number': (this.props.invalidInputClass) ? false : !isValidValue,
+      [this.props.invalidInputClass]: !isValidValue,
+      [this.props.validInputClass]: isValidValue
+    } : {};
     const inputClasses = classNames({
       [this.props.inputClass]: true,
       'form-control': true,
-      'invalid-number': this.props.invalidInputClass ? false : !isValidValue,
-      [this.props.invalidInputClass]: !isValidValue,
-      [this.props.validInputClass]: isValidValue,
+      ...validationClasses(),
       'open': showDropdown,
     });
     const selectedFlagClasses = classNames({
@@ -945,9 +951,9 @@ class PhoneInput extends React.Component {
       <div
         className={containerClasses}
         style={this.props.style || this.props.containerStyle}
-        onKeyDown={this.handleKeydown}>
-        {specialLabel && <div className='special-label'>{specialLabel}</div>}
-        {errorMessage && <div className='invalid-number-message'>{errorMessage}</div>}
+        onKeyDown={this.handleKeydown} >
+        { specialLabel && <div className='special-label'>{specialLabel}</div>}
+        { errorMessage && <div className='invalid-number-message'>{errorMessage}</div>}
         <input
           className={inputClasses}
           style={this.props.inputStyle}
@@ -990,8 +996,8 @@ class PhoneInput extends React.Component {
 
           {showDropdown && this.getCountryDropdownList()}
         </div>
-        {this.props.children}
-      </div>
+        { this.props.children}
+      </div >
     );
   }
 }
