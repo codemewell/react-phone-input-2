@@ -51,7 +51,7 @@
 * Copy number from input without formatting
 * Select whole number when double click
 * Pass event object to onChange handler
-* Style update: style.css high-res.css material.css bootstrap.css semantic-ui.css plain.css
+* Style update: style.css high-res.css material.css bootstrap.css semantic-ui.css plain.css minimal.css
 
 
 ## 2.10.0 (September 18, 2019)

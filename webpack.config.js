@@ -114,7 +114,8 @@ if (TARGET === 'build:css') {
       './src/style/material.less',
       './src/style/bootstrap.less',
       './src/style/semantic-ui.less',
-      './src/style/plain.less'
+      './src/style/plain.less',
+      './src/style/minimal.less',
     ],
     mode: 'production',
     module: {
