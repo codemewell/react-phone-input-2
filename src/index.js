@@ -98,7 +98,7 @@ class PhoneInput extends React.Component {
       PropTypes.bool,
       PropTypes.func,
     ]),
-    validationActive: PropTypes.bool,
+    validationClassActive: PropTypes.bool,
 
     defaultErrorMessage: PropTypes.string,
     specialLabel: PropTypes.string,
@@ -168,7 +168,7 @@ class PhoneInput extends React.Component {
     showDropdown: false,
 
     isValid: true, // (value, selectedCountry, onlyCountries, hiddenAreaCodes) => true | false | 'Message'
-    validationActive: false,
+    validationClassActive: false,
     defaultErrorMessage: '',
     specialLabel: 'Phone',
 
@@ -924,7 +924,7 @@ class PhoneInput extends React.Component {
       'react-tel-input': true,
     });
     const arrowClasses = classNames({ 'arrow': true, 'up': showDropdown });
-    const validationClasses = () => this.props.validationActive ? {
+    const validationClasses = () => this.props.validationClassActive ? {
       'invalid-number': (this.props.invalidInputClass) ? false : !isValidValue,
       [this.props.invalidInputClass]: !isValidValue,
       [this.props.validInputClass]: isValidValue
