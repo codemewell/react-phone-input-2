@@ -938,7 +938,7 @@ class PhoneInput extends React.Component {
       'open': showDropdown,
     });
     const validationAttribute = this.props.validAttributeName != '' ? {
-      [this.props.validAttributeName]: isValidValue
+      [this.props.validAttributeName]: isValidValue.toString()
     } : {};
     const selectedFlagClasses = classNames({
       'selected-flag': true,
